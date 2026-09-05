@@ -1,0 +1,22 @@
+GPT-HOW: IPHONE GITHUB UPLOAD
+
+1. Save and open GPT-How-GitHub-Upload.zip in the iPhone Files app.
+2. Tap the ZIP once to extract the GPT-How folder.
+3. In Safari, open:
+   https://github.com/amateur-z00keeper/GPT-How
+4. Tap Add file, then Upload files.
+5. Select Browse and open the extracted GPT-How folder.
+6. Select these files:
+   index.html
+   styles.css
+   app.js
+   vercel.json
+   README.md
+7. Do not upload this instruction file unless you want it stored in GitHub.
+8. Enter the commit message:
+   Add Project Path website
+9. Select Commit directly to the main branch.
+10. Tap Commit changes.
+
+If GitHub warns that README.md already exists, leave README.md unselected and
+upload the other four website files.

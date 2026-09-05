@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Beginner-friendly, ADHD-aware project plans with steps, tools, costs, diagrams, and local requirements.">
+  <title>Project Path — Build it one clear step at a time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Project Path home"><span class="brand-mark">P</span><span>Project Path</span></a>
+    <nav aria-label="Primary navigation"><a href="#sample">Example plan</a><a href="#tiers">Plan levels</a><button class="icon-button" id="themeToggle" aria-label="Switch color theme">◐</button></nav>
+  </header>
+
+  <main id="top">
+    <section class="planner" aria-labelledby="planner-title">
+      <div class="planner-copy">
+        <p class="eyebrow">CLEAR PLANS FOR REAL-WORLD PROJECTS</p>
+        <h1 id="planner-title">What do you want to build?</h1>
+        <p>Tell us the goal. Get one manageable step at a time—plus diagrams, tools, realistic costs, and local requirements.</p>
+      </div>
+      <form id="projectForm" class="project-form">
+        <label for="project">Describe your project</label>
+        <textarea id="project" rows="3" placeholder="Example: Add a solar-powered electric motor to my sea kayak" required></textarea>
+        <div class="form-grid">
+          <div><label for="zip">ZIP code</label><input id="zip" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" placeholder="49950" required></div>
+          <div><label for="experience">Experience</label><select id="experience"><option>Complete beginner</option><option>Some DIY experience</option><option>Experienced builder</option></select></div>
+          <div><label for="budget">Budget</label><select id="budget"><option>Lowest practical cost</option><option>Balanced value</option><option>Best long-term setup</option></select></div>
+        </div>
+        <fieldset><legend>How should the guide feel?</legend><div class="choice-row"><label><input type="radio" name="pace" value="focus" checked> Focus mode</label><label><input type="radio" name="pace" value="overview"> Full overview</label></div></fieldset>
+        <button class="primary" type="submit">Create my starter plan <span>→</span></button>
+        <p class="form-note">Free starter plans do not require an account.</p>
+      </form>
+    </section>
+
+    <section id="generated" class="generated hidden" aria-live="polite">
+      <div><p class="eyebrow">STARTER PLAN CREATED</p><h2 id="generatedTitle"></h2><p id="generatedMeta"></p></div>
+      <button class="secondary" onclick="document.querySelector('#sample').scrollIntoView({behavior:'smooth'})">View guide format ↓</button>
+    </section>
+
+    <section id="sample" class="sample-section" aria-labelledby="sample-title">
+      <div class="section-heading"><div><p class="eyebrow">SEE HOW IT WORKS</p><h2 id="sample-title">A guide that keeps you moving</h2></div><p>Each step answers only three questions: what to do, what you need, and how to know it worked.</p></div>
+      <div class="guide-shell">
+        <aside class="step-list" aria-label="Guide steps">
+          <div class="guide-title"><span class="tiny-icon">☀</span><div><strong>Solar kayak motor</strong><small>Beginner · 49950</small></div></div>
+          <button class="step active" data-step="1"><span>1</span><div><strong>Choose the system</strong><small>About 10 minutes</small></div><b>✓</b></button>
+          <button class="step" data-step="2"><span>2</span><div><strong>Gather parts & tools</strong><small>Shopping checklist</small></div></button>
+          <button class="step" data-step="3"><span>3</span><div><strong>Bench-test safely</strong><small>About 30 minutes</small></div></button>
+          <button class="step" data-step="4"><span>4</span><div><strong>Mount & waterproof</strong><small>About 1–2 hours</small></div></button>
+        </aside>
+        <article class="guide-card">
+          <div class="progress-head"><span id="stepLabel">STEP 1 OF 4</span><span>25% complete</span></div><div class="progress"><i></i></div>
+          <div id="guideContent"></div>
+          <div class="guide-actions"><button class="secondary" id="backStep" disabled>← Back</button><button class="primary small" id="nextStep">Mark done & continue →</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="quick-context">
+      <article><span class="context-icon">$</span><div><small>LIKELY PROJECT RANGE</small><strong>$650–$1,450</strong><p>Parts, safety gear, and basic tools</p></div></article>
+      <article><span class="context-icon">⌂</span><div><small>LOCAL CHECK</small><strong>Registration may apply</strong><p>Requirements depend on motor use and state rules</p></div></article>
+      <article><span class="context-icon">✓</span><div><small>BEGINNER READINESS</small><strong>Moderate</strong><p>No advanced fabrication required</p></div></article>
+    </section>
+
+    <section id="tiers" class="tiers" aria-labelledby="tiers-title">
+      <div class="section-heading centered"><div><p class="eyebrow">CHOOSE YOUR HELP LEVEL</p><h2 id="tiers-title">Bring in the right experience for the job.</h2><p class="section-intro">Every level includes the free starter plan. Higher levels add deeper planning, technical judgment, and project support.</p></div></div>
+      <div class="tier-grid six">
+        <article class="tier" data-tier="1"><div class="tier-number">01</div><p class="tier-name">Intern</p><h3>Basic support</h3><p>Focused help for straightforward questions without adding recommendations you did not ask for.</p><ul><li>Fact and requirement checks</li><li>General build knowledge</li><li>Direct beginner answers</li></ul><button class="secondary full tier-select">Choose Intern</button></article>
+        <article class="tier" data-tier="2"><div class="tier-number">02</div><p class="tier-name">Mid-Level</p><h3>2–5 years</h3><p>Detailed direction for low-complexity projects and common administrative needs.</p><ul><li>Permit and rule guidance</li><li>Basic diagrams</li><li>Common mistake prevention</li><li>Learning resources</li></ul><button class="secondary full tier-select">Choose Mid-Level</button></article>
+        <article class="tier featured selected" data-tier="3"><div class="badge">VERSATILE</div><div class="tier-number">03</div><p class="tier-name">Senior</p><h3>5–7 years</h3><p>Plans and manages multi-step projects with moderate complexity.</p><ul><li>Branching project plans</li><li>Photo-based issue review</li><li>Planning and permit support</li><li>Construction and IT specialties</li></ul><button class="primary full tier-select">Choose Senior</button></article>
+        <article class="tier" data-tier="4"><div class="tier-number">04</div><p class="tier-name">Consultant</p><h3>10+ years</h3><p>Deeper diagnostic and follow-up support across connected project decisions.</p><ul><li>Uncommon pitfall guidance</li><li>Photo review</li><li>Multiple follow-up branches</li><li>Repair-system specialists</li></ul><button class="secondary full tier-select">Choose Consultant</button></article>
+        <article class="tier" data-tier="5"><div class="tier-number">05</div><p class="tier-name">Contractor</p><h3>11–20 years</h3><p>Professional-level preparation and practical guidance for larger builds.</p><ul><li>Blueprint and architecture help</li><li>High-complexity planning</li><li>Professional recommendations</li><li>Local labor and material leads</li></ul><button class="secondary full tier-select">Choose Contractor</button></article>
+        <article class="tier mechanic" data-tier="6"><div class="tier-number">06</div><p class="tier-name">Mechanic</p><h3>Mechanical specialist</h3><p>Expert troubleshooting for vehicles, engines, appliances, and resilient home systems.</p><ul><li>Diagnostic question paths</li><li>Error-code interpretation</li><li>Repair and replacement parts</li><li>Off-grid and outage readiness</li></ul><button class="secondary full tier-select">Choose Mechanic</button></article>
+      </div>
+      <p class="tier-note">Experience labels describe the depth and style of assistance—not a licensed professional relationship. Safety-critical work should be verified locally.</p>
+    </section>
+
+    <section id="specialists" class="specialists" aria-labelledby="specialists-title">
+      <div class="section-heading"><div><p class="eyebrow">AVAILABLE WITH LEVELS 3–6</p><h2 id="specialists-title">Choose a specialty agent.</h2></div><p>Match the assistant’s knowledge base to the work. Your selected help level controls the depth of the response.</p></div>
+      <div class="selected-level">Current level: <strong id="selectedTier">Senior</strong></div>
+      <div class="specialty-grid" id="specialtyGrid">
+        <button><span>⌂</span><strong>ADU, Shed & Garage Builds</strong><small>Year-round spaces and storage</small></button>
+        <button><span>⌘</span><strong>IT & Cybersecurity</strong><small>Systems, networks, and protection</small></button>
+        <button><span>&lt;/&gt;</span><strong>Vibe Coding</strong><small>Design, build, and launch an app</small></button>
+        <button><span>⚡</span><strong>Electrical</strong><small>Circuits, loads, and safe planning</small></button>
+        <button><span>◉</span><strong>Plumbing</strong><small>Supply, drains, and fixtures</small></button>
+        <button><span>❄</span><strong>HVAC</strong><small>Heating, cooling, and ventilation</small></button>
+        <button><span>≋</span><strong>Sewer & Septic</strong><small>Wastewater systems and upkeep</small></button>
+        <button><span>⌂</span><strong>Home Repair & Maintenance</strong><small>Troubleshooting and upkeep</small></button>
+        <button><span>▦</span><strong>Build & Remodel</strong><small>Construction and renovation</small></button>
+        <button><span>▱</span><strong>Exterior Envelope</strong><small>Windows, doors, roofing, siding</small></button>
+        <button><span>♨</span><strong>Energy Savers</strong><small>Insulation and efficiency</small></button>
+        <button><span>§</span><strong>Permitting & Administration</strong><small>Rules, forms, and approvals</small></button>
+        <button><span>◷</span><strong>Best Estimates</strong><small>Time, people, cost, and milestones</small></button>
+      </div>
+      <div id="specialtyChoice" class="choice-confirm hidden" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer><a class="brand" href="#top"><span class="brand-mark">P</span><span>Project Path</span></a><p>Build with clarity. Verify local rules before purchasing or construction.</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>
